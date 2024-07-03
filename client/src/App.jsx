@@ -1,14 +1,17 @@
 import { Outlet } from "react-router-dom";
 import "./App.css";
 import { SettingsProvider } from "./contexts/SettingsContext";
-import SettingsBtn from "./components/SettingsMenu/SettingsMenu";
+import SettingsMenu from "./components/SettingsMenu/SettingsMenu";
+import TopBar from "./components/TopBar/TopBar";
+import Footer from "./components/Footer/Footer"
 
 function App () {
 
   return (
     <SettingsProvider>
-        <SettingsBtn />
-        <Outlet />
+      <TopBar />
+      <Outlet />
+      <Footer />
     </SettingsProvider>
   );
 };

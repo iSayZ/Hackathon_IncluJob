@@ -1,4 +1,4 @@
-import "./styles/BurgerMenu.css"
+import "./BurgerMenu.css"
 
 function BurgerMenu () {
     return (

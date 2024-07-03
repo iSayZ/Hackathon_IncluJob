@@ -1,8 +1,8 @@
-import "./SettingsBtn.css"
+import "./SettingsMenu.css"
 import { useSettings } from "../../contexts/SettingsContext";
 import { Link } from "react-router-dom";
 
-function SettingsBtn () {
+function SettingsMenu () {
 
     const { hangleToggleTheme, hangleToggleSize } = useSettings();
 
@@ -29,4 +29,4 @@ function SettingsBtn () {
     )
 }
 
-export default SettingsBtn;
+export default SettingsMenu;
