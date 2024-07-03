@@ -1,0 +1,146 @@
+.setting_button_image {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  padding: 0.5rem;
+}
+
+.checkbox_toggle .tgl {
+  display: none;
+}
+.checkbox_toggle .tgl,
+.checkbox_toggle .tgl:after,
+.checkbox_toggle .tgl:before,
+.checkbox_toggle .tgl *,
+.checkbox_toggle .tgl *:after,
+.checkbox_toggle .tgl *:before,
+.checkbox_toggle .tgl + .tgl-btn {
+  box-sizing: border-box;
+}
+.checkbox_toggle .tgl::-moz-selection,
+.checkbox_toggle .tgl:after::-moz-selection,
+.checkbox_toggle .tgl:before::-moz-selection,
+.checkbox_toggle .tgl *::-moz-selection,
+.checkbox_toggle .tgl *:after::-moz-selection,
+.checkbox_toggle .tgl *:before::-moz-selection,
+.checkbox_toggle .tgl + .tgl-btn::-moz-selection,
+.checkbox_toggle .tgl::selection,
+.checkbox_toggle .tgl:after::selection,
+.checkbox_toggle .tgl:before::selection,
+.checkbox_toggle .tgl *::selection,
+.checkbox_toggle .tgl *:after::selection,
+.checkbox_toggle .tgl *:before::selection,
+.checkbox_toggle .tgl + .tgl-btn::selection {
+  background: none;
+}
+.checkbox_toggle .tgl + .tgl-btn {
+  outline: 0;
+  display: block;
+  width: 4em;
+  height: 2em;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.checkbox_toggle .tgl + .tgl-btn:after,
+.checkbox_toggle .tgl + .tgl-btn:before {
+  position: relative;
+  display: block;
+  content: "";
+  width: 50%;
+  height: 100%;
+}
+.checkbox_toggle .tgl + .tgl-btn:after {
+  left: 0;
+}
+.checkbox_toggle .tgl + .tgl-btn:before {
+  display: none;
+}
+.checkbox_toggle .tgl:checked + .tgl-btn:after {
+  left: 50%;
+}
+
+.checkbox_toggle .tgl-light + .tgl-btn {
+  background: transparent;
+  border-radius: 2rem;
+  padding: 2px;
+  transition: all 0.4s ease;
+  border: solid var(--white) 1px;
+}
+.checkbox_toggle .tgl-light + .tgl-btn:after {
+  border-radius: 50%;
+  background: #fff;
+  transition: all 0.2s ease;
+}
+.checkbox_toggle .tgl-light:checked + .tgl-btn {
+  background: var(--primary-color);
+}
+
+.all_setting_popup.hidden {
+  display: none;
+}
+
+.all_setting_popup.visible {
+  display: block;
+}
+
+.all_setting_popup {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 45%;
+  right: 0;
+  z-index: 5;
+  background-color: var(--secondary-color);
+}
+
+.all_setting_popup h2 {
+  align-items: center;
+  font-size: 1.2em;
+  margin: 2rem 0 1rem 1rem;
+  color: var(--white);
+}
+
+.all_setting_popup p {
+  color: var(--white);
+}
+
+.exit_setting_menu {
+  top: 1rem;
+  position: absolute;
+  right: 1rem;
+}
+.exit_setting_menu img {
+  height: 50px;
+  width: 50px;
+}
+
+.setting_checkbox {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  margin-top: 2em;
+}
+.setting_checkbox p {
+  margin-right: 1.5rem;
+}
+.setting_checkbox label {
+  margin-right: 2rem;
+}
+
+#setting_checkbox_theme {
+  margin-top: 3rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .all_setting_button {
+    display: none;
+  }
+}
