@@ -1,0 +1,37 @@
+.all_footer ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5em;
+  list-style-type: none;
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 2em 0;
+}
+
+.all_footer li {
+  display: flex;
+  justify-content: center;
+}
+
+.all_footer li:hover {
+  transition: 0.3s;
+  transform: scale(1.1);
+}
+
+.hr_footer {
+  margin: auto;
+  width: 15%;
+}
+
+@media screen and (min-width: 1024px) {
+  .all_footer ul {
+    flex-direction: row;
+  }
+
+  .hr_footer {
+    margin: 0;
+    width: 0;
+    height: 1.5em;
+  }
+}
