@@ -1,10 +1,11 @@
 import "./styles/HomePage.css"
+import Search from "../components/Search/Search";
 
 function HomePage () {
     return (
-        <>
-            HOMEPAGE
-        </>
+        <div className="homepage">
+            <Search />
+        </div>
     )
 }
 
