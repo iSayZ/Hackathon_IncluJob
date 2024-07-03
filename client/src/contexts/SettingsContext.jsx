@@ -7,12 +7,19 @@ import {
   export function SettingsProvider({
     children,
   }) {
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleBurgerMenu = () => {
+      setIsOpen(!isOpen)
+    }
   
     const [isDarkMode, setIsDarkMode] = useState(false);
   const [isKingSize, setIsKingSize] = useState(false);
 
   useEffect(() => {
     if (isDarkMode) {
+      document.documentElement.style.setProperty('--white', '#fff200');
       document.documentElement.style.setProperty('--background-color', '#1a1a1a');
       document.documentElement.style.setProperty('--title-color', '#EBF2FA');
       document.documentElement.style.setProperty('--primary-color', '#1a1a1a');
@@ -28,6 +35,7 @@ import {
       document.documentElement.style.setProperty('--btn-three-hover', '#bdb300');
       document.documentElement.style.setProperty('--btn-three-active', '#fff200');
     } else {
+      document.documentElement.style.setProperty('--white', '#fcfcfc');
       document.documentElement.style.setProperty('--background-color', '#f8f8f8');
       document.documentElement.style.setProperty('--title-color', '#1a1616');
       document.documentElement.style.setProperty('--primary-color', '#427AA1');
@@ -60,7 +68,7 @@ import {
   }
 
       return (
-          <SettingsContext.Provider value={{ hangleToggleTheme, hangleToggleSize }}>
+          <SettingsContext.Provider value={{ hangleToggleTheme, hangleToggleSize, toggleBurgerMenu, isOpen, isDarkMode }}>
               {children}
           </SettingsContext.Provider>
       )
