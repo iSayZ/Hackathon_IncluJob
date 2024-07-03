@@ -1,10 +1,10 @@
-import "./styles/TopBar.css"
+import "./TopBar.css"
 
 function TopBar () {
     return (
-        <>
+        <div className="top_bar">
             TopBar
-        </>
+        </div>
     )
 }
 
