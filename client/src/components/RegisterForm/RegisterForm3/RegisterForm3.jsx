@@ -1,6 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 function RegisterForm3() {
+
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    console.log(hash)
+    if (hash) {
+      const element = document.getElementById("#top");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [hash]);
   return (
     <div>
       <div className="register_form_4_4_h2">
@@ -35,13 +48,13 @@ function RegisterForm3() {
       <hr className="hr_90" />
       <div className="register_form_add_experience">
         <img
-          src="assets/images/icons/more_experience.svg"
+          src="/assets/images/icons/more_experience.svg"
           alt="Ajoutez une expérience"
         />
         <p>Ajouter une autre expérience professionnelle</p>
       </div>
       <div className="register_form_4_4_btn">
-        <Link to={"/formulaire-inscription4"}>
+        <Link to={"/formulaire-inscription4/#top"}>
           <button className="btn two">Étape suivante</button>
         </Link>
       </div>

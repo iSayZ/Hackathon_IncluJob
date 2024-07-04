@@ -18,8 +18,8 @@ function CardOfferHome({ offer }) {
           <img
             src={
               isFavorited
-                ? "assets/images/icons/heart.svg"
-                : "assets/images/icons/fullheart.svg"
+                ? "/assets/images/icons/heart.svg"
+                : "/assets/images/icons/fullheart.svg"
             }
             alt="Mettre en favoris"
           />

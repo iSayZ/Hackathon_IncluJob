@@ -7,6 +7,13 @@ import About from "./pages/About";
 import Offers from "./pages/Offers";
 import OfferDetails from "./pages/OfferDetails";
 import Register from "./pages/Register";
+import PageRegisterConfirmation from "./pages/PageRegisterConfirmation";
+import PageRegisterForm1 from "./pages/PageRegisterForm1";
+import PageRegisterForm2 from "./pages/PageRegisterForm2";
+import PageRegisterForm3 from "./pages/PageRegisterForm3";
+import PageRegisterForm4 from "./pages/PageRegisterForm4";
+import PageCreateAnnounce from "./pages/PageCreateAnnounce";
+
 
 const router = createBrowserRouter([
   {
@@ -33,6 +40,30 @@ const router = createBrowserRouter([
       {
         path: "/inscription",
         element: <Register />
+      },
+      {
+        path: "/confirmation-inscription",
+        element: <PageRegisterConfirmation />,
+      },
+      {
+        path: "/formulaire-inscription",
+        element: <PageRegisterForm1 />,
+      },
+      {
+        path: "/formulaire-inscription2",
+        element: <PageRegisterForm2 />,
+      },
+      {
+        path: "/formulaire-inscription3",
+        element: <PageRegisterForm3 />,
+      },
+      {
+        path: "/formulaire-inscription4",
+        element: <PageRegisterForm4 />,
+      },
+      {
+        path: "/creation-annonce",
+        element: <PageCreateAnnounce />,
       }
     ],
   },

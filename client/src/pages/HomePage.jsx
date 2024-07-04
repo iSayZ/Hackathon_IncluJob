@@ -34,7 +34,6 @@ function HomePage() {
       <Search sectors={sectors} disabilities={disabilities}/>
       <OfferContainer />
       <HomeFeature />
-      <DemoCarousel />
     </div>
   );
 }

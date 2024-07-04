@@ -2,12 +2,9 @@ import React, { useState } from "react";
 import "./Caroussel.css";
 import CardOfferHome from "../CardOfferHome/CardOfferHome";
 
-const Caroussel = () => {
+const Caroussel = ({ offers }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const totalCards = 3; // Change this if you have more cards
-  const cards = Array.from({ length: totalCards }, (_, i) => (
-    <CardOfferHome key={i} />
-  ));
+  const totalCards = offers.length; // Utiliser la longueur des offres
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % totalCards);
@@ -23,12 +20,13 @@ const Caroussel = () => {
         ‹
       </button>
       <div className="carousel">
-        {cards.map((card, index) => (
+        {offers.map((offer, index) => (
           <div
             className={`carousel_item ${index === currentIndex ? "active" : ""}`}
             key={index}
+            style={{ display: index === currentIndex ? "block" : "none" }} // Afficher seulement l'élément actif
           >
-            {card}
+            <CardOfferHome offer={offer} /> {/* Passer l'offre comme prop */}
           </div>
         ))}
       </div>
@@ -36,7 +34,7 @@ const Caroussel = () => {
         ›
       </button>
       <div className="carousel_indicators">
-        {cards.map((_, index) => (
+        {offers.map((_, index) => (
           <span
             key={index}
             className={`indicator ${index === currentIndex ? "active" : ""}`}

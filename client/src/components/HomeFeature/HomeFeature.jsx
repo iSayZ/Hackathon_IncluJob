@@ -4,10 +4,11 @@ import HomeLogin from "./HomeLogin/HomeLogin";
 import "./HomeFeature.css";
 import { useEffect, useState } from "react";
 import myAxios from "../../services/myAxios";
+import Caroussel from "../Caroussel/Caroussel";
 
 function HomeFeature() {
 
-  const [offer, setOffer] = useState();
+  const [offer, setOffer] = useState(); 
   useEffect(
     () => {
       const getData = async () => {
@@ -16,6 +17,7 @@ function HomeFeature() {
       }
 
       getData();
+      console.log(offer)
     }, []
   )
 
@@ -24,9 +26,10 @@ function HomeFeature() {
       <HomeLogin />
       <p className="home_feature_offer_para">Les offres d'emplois récentes</p>
       <div className="card_container">
-      {offer && offer.map((offer) => 
+       {offer && <Caroussel offers={offer} /> }
+      {/* {offer && offer.map((offer) => 
         <CardOfferHome offer={offer} />
-      )}
+      )} */}
       </div>
       <HomeAbout />
     </div>

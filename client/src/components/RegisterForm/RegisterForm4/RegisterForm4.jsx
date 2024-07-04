@@ -1,7 +1,19 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 function RegisterForm4() {
+
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    console.log(hash)
+    if (hash) {
+      const element = document.getElementById("#top");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [hash]);
   const [selectedDisabilities, setSelectedDisabilities] = useState([]);
 
   const handleDisabilityClick = (index) => {
@@ -40,12 +52,12 @@ function RegisterForm4() {
           </div>
           <div className="all-disab">
             {[
-              { img: "assets/images/icons/creative.svg", text: "Handicap psychique" },
-              { img: "assets/images/icons/health.svg", text: "Maladies invalidantes" },
-              { img: "assets/images/icons/unseen.svg", text: "Handicap visuel" },
-              { img: "assets/images/icons/deafness.svg", text: "Handicap auditif" },
-              { img: "assets/images/icons/disabled.svg", text: "Handicap moteur" },
-              { img: "assets/images/icons/brain.svg", text: "Handicap intellectuel" }
+              { img: "/assets/images/icons/creative.svg", text: "Handicap psychique" },
+              { img: "/assets/images/icons/health.svg", text: "Maladies invalidantes" },
+              { img: "/assets/images/icons/unseen.svg", text: "Handicap visuel" },
+              { img: "/assets/images/icons/deafness.svg", text: "Handicap auditif" },
+              { img: "/assets/images/icons/disabled.svg", text: "Handicap moteur" },
+              { img: "/assets/images/icons/brain.svg", text: "Handicap intellectuel" }
             ].map((disability, index) => (
               <div
                 key={index}
@@ -67,7 +79,7 @@ function RegisterForm4() {
           </div>
         </div>
         <div className="register_form_4_4_btn">
-          <Link to={"/offres"}>
+          <Link to={"/offres/#top"}>
             <button className="btn two">Valider mon profil</button>
           </Link>
         </div>

@@ -16,7 +16,7 @@ function TopBar () {
                 </div>
                 <button className="btn_burger_menu no_btn zoom" type="button" onClick={toggleBurgerMenu} aria-label="Bouton d'ouverture du menu de navigation"><img src={isDarkMode ? "/assets/images/icons/burger-menu-yellow.svg" : "/assets/images/icons/burger-menu-white.svg"} alt="Icone du menu" /></button>
             </div>
-            <div className="banner">
+            <div className="banner" id="#top">
                 <img src="/assets/images/banner.jpg" alt="Bannière du haut de page" />
             </div>
         </>

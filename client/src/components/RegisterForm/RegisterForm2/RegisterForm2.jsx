@@ -1,6 +1,20 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 function RegisterForm2() {
+
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    console.log(hash)
+    if (hash) {
+      const element = document.getElementById("#top");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [hash]);
+
   return (
       <div>
         <div className="register_form_4_4_h2">
@@ -53,7 +67,7 @@ function RegisterForm2() {
           />
         </div>
         <div className="register_form_4_4_btn">
-          <Link to={"/formulaire-inscription3"}>
+          <Link to={"/formulaire-inscription3/#top"}>
             <button className="btn two">Étape suivante</button>
           </Link>
         </div>
