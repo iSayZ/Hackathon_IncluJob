@@ -3,6 +3,7 @@ import Search from "../components/Search/Search";
 import { useEffect, useState } from "react";
 import myAxios from "../services/myAxios";
 import HomeFeature from "../components/HomeFeature/HomeFeature";
+import DemoCarousel from "../components/Caroussel/Caroussel";
 import OfferContainer from "./OfferContainer";
 import { useSearch } from "../contexts/SearchContext";
 
@@ -20,21 +21,20 @@ function HomePage() {
         ]);
         setDisabilities(disabilitiesResponse.data);
         setSectors(sectorsResponse.data);
-    } catch (err) {
+      } catch (err) {
         console.log(err);
-    }
-};
+      }
+    };
 
-getData();
-
+    getData();
   }, []);
 
   return (
     <div className="homepage">
       <Search sectors={sectors} disabilities={disabilities}/>
-      {/* {offer && } */}
       <OfferContainer />
       <HomeFeature />
+      <DemoCarousel />
     </div>
   );
 }
