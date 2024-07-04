@@ -1,0 +1,100 @@
+.about .approach {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.about .approach p{
+    padding: 0 2rem;
+}
+
+.about .stat_number {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    padding:2rem;
+    background-color: var(--secondary-color);
+}
+
+.about .stat_number p {
+    color: var(--white);
+}
+
+.result_stat_number {
+    text-align: center;
+    padding: 2rem;
+}
+
+.result_stat_number{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    display: none;
+}
+
+.handicap {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+} 
+
+.result_stat_number.open {
+    display: flex;
+}
+
+.handicap .logo {
+    height: 70px;
+    width: 70px;
+    box-shadow: var(--shadow-container);
+    border-radius: 50%;
+    background-color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: none;
+    margin-right: 1rem;
+}
+
+.handicap .logo img{
+    width: 50px;
+    height: 50px;
+}
+
+.about a {
+    text-decoration: underline;
+    color: blue;
+}
+
+.about .info {
+    padding: 2rem;
+    background-color: var(--secondary-color);
+    text-align: center;
+}
+
+.about .info p {
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.about .info.second {
+    background-color: var(--background-color);
+}
+
+.about .info.second p {
+    color: var(--text-color);
+}
+
+@media screen and (min-width: 1024px) {
+    .about_header {
+        display: flex;
+        align-items: center;
+    }
+}

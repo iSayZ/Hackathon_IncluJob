@@ -84,7 +84,7 @@ import myAxios from "../services/myAxios"
     }
 
       return (
-          <SearchContext.Provider value={{ handleChangeJob, job, handleChangeSector, handleChangeLocation, location, handleChangeContract, handleChangeDisability, goSearch }}>
+          <SearchContext.Provider value={{ handleChangeJob, job, handleChangeSector, handleChangeLocation, location, handleChangeContract, handleChangeDisability, goSearch, result }}>
               {children}
           </SearchContext.Provider>
       )

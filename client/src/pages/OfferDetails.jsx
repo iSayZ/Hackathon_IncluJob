@@ -36,6 +36,7 @@ function OfferDetails () {
                 <div className="header_top">
                     <div className="logo"><img src={offer.logo} alt={`Logo d'entreprise de ${offer.name}`} /></div>
                     <h2>{offer.name}</h2>
+                    <h2>{offer.title}</h2>
                 </div>
             </div>
             <h3>{offer.contract}</h3>

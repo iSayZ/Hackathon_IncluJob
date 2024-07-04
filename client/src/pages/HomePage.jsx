@@ -3,8 +3,11 @@ import Search from "../components/Search/Search";
 import { useEffect, useState } from "react";
 import myAxios from "../services/myAxios";
 import HomeFeature from "../components/HomeFeature/HomeFeature";
+import OfferContainer from "./OfferContainer";
+import { useSearch } from "../contexts/SearchContext";
 
 function HomePage() {
+  const { offer } = useSearch();
   const [disabilities, setDisabilities] = useState();
   const [sectors, setSectors] = useState();
 
@@ -29,6 +32,8 @@ getData();
   return (
     <div className="homepage">
       <Search sectors={sectors} disabilities={disabilities}/>
+      {/* {offer && } */}
+      <OfferContainer />
       <HomeFeature />
     </div>
   );

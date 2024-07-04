@@ -1,9 +1,32 @@
 .all_card_home_info_offer {
-  margin: auto;
+  position: relative;
+  margin: 1rem;
   background-color: var(--white);
-  border-radius: 2rem;
+  border-radius: 10px;
   padding: 1rem;
   width: 90%;
+  box-shadow: var(--shadow-container);
+  margin-bottom: 1rem;
+}
+
+.card_container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.all_card_home_info_offer .header_offer {
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.all_card_home_info_offer .header_offer p,
+.all_card_home_info_offer .header_offer h3,
+.all_card_home_info_offer .header_offer h2 {
+  color: var(--black);
 }
 
 .card_home_logo_company {
@@ -15,6 +38,7 @@
   border-radius: 1rem;
   margin: auto;
   margin-right: 1rem;
+  box-shadow: var(--shadow-container);
 }
 
 .card_home_logo_company img {
@@ -22,8 +46,23 @@
   height: 30px;
 }
 
+.card_home_container_button .btn{
+  margin: 0 1rem;
+}
+
+.card_home_container_button .btn.dark {
+  background-color: #fcfcfc;
+}
+
+.card_home_container_button .btn.dark:hover {
+  background-color: #dfdede;
+}
+
 .card_image_favoris {
   margin-top: 1rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
 }
 
 .card_image_favoris img {
@@ -64,7 +103,7 @@
 
 .card_home_info_h2 h2 {
   font-size: 1.2rem;
-  color: var(--black);
+  color: var(--black); 
 }
 
 .card_home_name_date {
@@ -103,6 +142,13 @@
   color: var(--black);
 }
 
+.card_home_para .card_content {
+  display: -webkit-box; /* Nécessaire pour la troncature multi-lignes */
+  -webkit-box-orient: vertical; /* Nécessaire pour la troncature multi-lignes */
+  -webkit-line-clamp: 6; 
+  overflow: hidden; 
+}
+
 .card_home_para hr {
   background-color: gray;
   border-radius: 2rem;
@@ -118,7 +164,12 @@
 
 .all_logo_disability {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+}
+
+.all_logo_disability img {
+  margin: 0 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .all_logo_disability img:hover {
@@ -134,57 +185,32 @@
 .logo_disability {
   background-color: var(--secondary-color);
   padding: 0.3rem;
-  border-radius: 5rem;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
   margin-bottom: 1rem;
 }
 
+.logo_disability img {
+  width: 45px;
+  height: 45px;
+}
+
+.all_card_home_info_offer button {
+  background-color: var(--black);
+}
+
 @media screen and (min-width: 1024px) {
-  .card_home_info_offer {
-    align-items: center;
-  }
-  .card_home_logo_company {
-    margin-left: 0;
-  }
-  .card_home_info_hour_type {
-    justify-content: center;
-  }
-  .card_home_info_hour_type p {
-    font-size: 1.2em;
-  }
-  .card_info_name_date {
-    justify-content: center;
-  }
-  .card_info_name_date p {
-    font-size: 1.2em;
-  }
-  .card_home_input {
-    width: 70%;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  }
-  .card_home_input p {
-    font-size: 1.2em;
-  }
-  .card_home_para hr {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    width: 70%;
-  }
-  .card_home_para p {
-    text-align: center;
-    font-size: 1.3em;
-  }
-  .card_home_info_offer {
-    justify-content: space-around;
-  }
-  .card_home_info_h2 h2 {
-    font-size: 2em;
-  }
-  .card_image_favoris img {
-    width: 40px;
-  }
-  .card_home_logo_company img {
-    width: 100px;
-    height: 80px;
+  .all_card_home_info_offer {
+    width: 31vw;
   }
 }
+
+@media screen and (min-width: 1024px) {
+
+  .all_card_home_info_offer .header_offer .header_top {
+  justify-content: flex-start;
+  padding-right: 2rem;
+  }
+
+} 

@@ -5,12 +5,12 @@
     gap: 1rem;
 }
 
-.offer_details .location {
+.location {
     display: flex;
     align-items: center;
 }
 
-.offer_details .location img{
+.location img{
     width: 30px;
     height: 30px;
     margin-left: -4px;
