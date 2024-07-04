@@ -9,7 +9,7 @@ function TopBar () {
     return (
         <>
             <div className="top_bar">
-                <div className="logo">Logo</div>
+                <div className="logo"><img src={isDarkMode ? "/assets/images/logo-yellow.svg" : "/assets/images/logo.svg"} alt="Logo de IncluJob" /></div>
                 <div className="title">
                 <h2>IncluJob</h2>
                 <cite>"Un emploi pour chacun, une chance pour tous !"</cite>
