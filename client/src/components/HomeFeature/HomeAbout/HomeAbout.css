@@ -9,3 +9,9 @@
   justify-content: center;
   margin: 1rem 0;
 }
+
+@media screen and (min-width: 1024px) {
+  .home_about_all p {
+    font-size: 1.3em;
+  }
+}

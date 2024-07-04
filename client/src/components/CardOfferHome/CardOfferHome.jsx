@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./CardOfferHome.css";
 
 function CardOfferHome() {
-  const [isFavorited, setIsFavorited] = useState(false);
+  const [isFavorited, setIsFavorited] = useState(true);
 
   const handleFavoritedClick = () => {
     setIsFavorited(!isFavorited);
@@ -41,7 +41,10 @@ function CardOfferHome() {
         <p className="card_home_info_date">Date de publication</p>
       </div>
       <div className="card_home_input">
-        <input placeholder="Ville, Code postal, Département" type="text" />
+        <p>Ville ,</p>
+        <p>Code postal ,</p>
+        <p>Département</p>
+        
       </div>
       <div className="card_home_para">
         <p>
@@ -58,32 +61,32 @@ function CardOfferHome() {
         <img
           className="logo_disability"
           src="assets/images/icons/disabled.svg"
-          alt="Logo"
+          alt="Logo disabled"
         />
         <img
           className="logo_disability"
           src="assets/images/icons/deafness.svg"
-          alt="Logo"
+          alt="Logo sourd"
         />
         <img
           className="logo_disability"
           src="assets/images/icons/unseen.svg"
-          alt="Logo"
+          alt="Logo non voyant"
         />
         <img
           className="logo_disability"
           src="assets/images/icons/creative.svg"
-          alt="Logo"
+          alt="Logo creative"
         />
         <img
           className="logo_disability"
           src="assets/images/icons/brain.svg"
-          alt="Logo"
+          alt="Logo mental"
         />
         <img
           className="logo_disability"
           src="assets/images/icons/health.svg"
-          alt="Logo"
+          alt="Logo santé"
         />
       </div>
       <div className="card_home_container_button">

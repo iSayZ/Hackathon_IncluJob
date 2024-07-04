@@ -7,6 +7,9 @@
 }
 
 .card_home_logo_company {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #e6e6e6;
   padding: 1rem;
   border-radius: 1rem;
@@ -15,8 +18,8 @@
 }
 
 .card_home_logo_company img {
-  width: 50px;
-  height: 35px;
+  width: 45px;
+  height: 30px;
 }
 
 .card_image_favoris {
@@ -42,11 +45,16 @@
   display: flex;
   flex-wrap: wrap;
   font-weight: 600;
+  color: var(--black);
 }
 
 .card_info_name_date {
   display: flex;
   align-items: center;
+}
+
+.card_info_name_date p {
+  color: var(--black);
 }
 .card_home_info_separator {
   margin-right: 0.5rem;
@@ -56,6 +64,7 @@
 
 .card_home_info_h2 h2 {
   font-size: 1.2rem;
+  color: var(--black);
 }
 
 .card_home_name_date {
@@ -68,31 +77,34 @@
 }
 
 .card_home_input {
+  margin: auto;
   display: flex;
   justify-content: center;
-}
-.card_home_input input {
   background-image: url("/assets/images/icons/localisation-icon.svg");
   background-repeat: no-repeat;
   background-position: left;
   background-size: 20px;
   width: 90%;
-  height: 3rem;
-  text-align: center;
-  padding-left: 2rem;
-  border: 0;
-  border-bottom: 1px solid black;
-  margin-bottom: 1rem;
+  border-bottom: 2px solid gray;
   margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.card_home_input p {
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  height: 2rem;
+  font-size: 0.8em;
+  margin-bottom: 0.5rem;
 }
 
 .card_home_para p {
   margin-bottom: 1rem;
+  color: var(--black);
 }
 
 .card_home_para hr {
   background-color: gray;
-  border: 1px solid gray;
   border-radius: 2rem;
   width: 90%;
   margin: auto;
@@ -124,4 +136,55 @@
   padding: 0.3rem;
   border-radius: 5rem;
   margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .card_home_info_offer {
+    align-items: center;
+  }
+  .card_home_logo_company {
+    margin-left: 0;
+  }
+  .card_home_info_hour_type {
+    justify-content: center;
+  }
+  .card_home_info_hour_type p {
+    font-size: 1.2em;
+  }
+  .card_info_name_date {
+    justify-content: center;
+  }
+  .card_info_name_date p {
+    font-size: 1.2em;
+  }
+  .card_home_input {
+    width: 70%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  .card_home_input p {
+    font-size: 1.2em;
+  }
+  .card_home_para hr {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 70%;
+  }
+  .card_home_para p {
+    text-align: center;
+    font-size: 1.3em;
+  }
+  .card_home_info_offer {
+    justify-content: space-around;
+  }
+  .card_home_info_h2 h2 {
+    font-size: 2em;
+  }
+  .card_image_favoris img {
+    width: 40px;
+  }
+  .card_home_logo_company img {
+    width: 100px;
+    height: 80px;
+  }
 }
