@@ -29,9 +29,12 @@ function CardOfferHome({ offer }) {
           <div className="logo">
             <img src={offer.logo} alt={`Logo d'entreprise de ${offer.name}`} />
           </div>
-          <h2>{offer.name}</h2>
+          <div className="title_offer">
+          <h3>{offer.name}</h3>
+          <h4>{offer.title}</h4>
+          </div>
         </div>
-        <h3>Type de contrat : {offer.contract}</h3>
+        <h4>Type de contrat : {offer.contract}</h4>
         <div className="company_name"> 
           <p id="publication_date">Publié le {offer.date}</p>
         </div>

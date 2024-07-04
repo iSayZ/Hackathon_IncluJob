@@ -137,7 +137,7 @@ WHERE od.id_offer_fk = ?`,
   //   }
   // }
 
-  async readByFilter(req) {
+  async readByFilter(req, res) {
     console.log(req.body);
     const { job, sector, location, contract, disability } = req.body;
 
@@ -146,33 +146,36 @@ WHERE od.id_offer_fk = ?`,
                 INNER JOIN operation ON id_offer_fk=id_offer
                 INNER JOIN account ON id_account=id_account_fk
                 INNER JOIN company AS c ON id_company=id_company_fk
-               LEFT JOIN offer_disability AS od ON o.id_offer = od.id_offer_fk WHERE 1=1 `;
+                LEFT JOIN offer_disability AS od ON o.id_offer = od.id_offer_fk WHERE 1=1 `;
     let queryParams = [];
 
     // Ajoutez des conditions à la requête en fonction des filtres fournis
     if (job) {
-        query += `AND o.name LIKE ?`;
+        query += `AND o.title LIKE ?`;
         queryParams.push(`%${job}%`);
     }
     if (sector) {
-        query += ' AND o.id_sector_fk = ?';
+        query += ' AND o.id_sector_fk = ? ';
         queryParams.push(parseInt(sector));
     }
     if (location) {
-        query += ' AND o.location LIKE ?';
+        query += ' AND o.location LIKE ? ';
         queryParams.push(`%${location}%`);
     }
     if (contract && Object.keys(contract).length > 0) {
         const contractConditions = Object.keys(contract).map(key => 'o.contract = ?');
-        query += ' AND (' + contractConditions.join(' OR ') + ')';
+        query += ' AND (' + contractConditions.join(' OR ') + ') ';
         queryParams.push(...Object.values(contract));
     }
     if (disability && Object.keys(disability).length > 0) {
         const disabilityIds = Object.entries(disability).map(([key, value]) => value);
         const placeholders = disabilityIds.map(() => '?').join(',');
-        query += ` AND od.id_disability_fk IN (${placeholders})`;
+        query += ` AND od.id_disability_fk IN (${placeholders}) `;
         queryParams.push(...disabilityIds);
     }
+
+    console.log('Constructed query:', query);
+    console.log('Query parameters:', queryParams);
 
     try {
         // Exécutez la requête avec les paramètres
@@ -201,6 +204,8 @@ WHERE od.id_offer_fk = ?`,
         res.status(500).json({ error: 'An error occurred while fetching jobs' });
     }
 }
+
+
 
 }
 

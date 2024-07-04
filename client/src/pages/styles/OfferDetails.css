@@ -21,6 +21,10 @@
 
 }
 
+.header_offer .header_top h2 {
+    color: var(--text-color);
+}
+
 .header_offer .header_top .logo img {
     width: 70px;
     height: 70px;
@@ -41,7 +45,8 @@
 }
 
 .offer_details .company_name h4  {
-    margin-right: 2px;
+    margin-right: 1rem;
+    max-width: 15ch;
 }
 
 .offer_details .disabilities_icons {
@@ -110,5 +115,9 @@
 
     .offer_details .offer_disabilities .handicap_btn {
         margin-top: 1.5rem;
+    }
+
+    .offer_details .company_name h4  {
+    max-width: inherit;
     }
 }
