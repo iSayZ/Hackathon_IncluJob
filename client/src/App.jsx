@@ -1,7 +1,8 @@
 import { Outlet } from "react-router-dom";
 import "./App.css";
 import { SettingsProvider } from "./contexts/SettingsContext";
-import SettingsMenu from "./components/SettingsMenu/SettingsMenu";
+import { SearchProvider } from "./contexts/SearchContext";
+import SettingsButton from "./components/SettingsButton/SettingsButton";
 import TopBar from "./components/TopBar/TopBar";
 import Footer from "./components/Footer/Footer"
 import BurgerMenu from "./components/BurgerMenu/BurgerMenu";
@@ -9,13 +10,15 @@ import BurgerMenu from "./components/BurgerMenu/BurgerMenu";
 function App () {
 
   return (
-    <SettingsProvider>
-      <TopBar />
-      {/* <SettingsMenu /> */}
-      <BurgerMenu />
-      <Outlet />
-      <Footer />
-    </SettingsProvider>
+    <SearchProvider>
+      <SettingsProvider>
+        <TopBar />
+        <SettingsButton />
+        <BurgerMenu />
+        <Outlet />
+        <Footer />
+      </SettingsProvider>
+    </SearchProvider>
   );
 };
 

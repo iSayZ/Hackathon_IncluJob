@@ -1,0 +1,93 @@
+.filter {
+    width: 100%;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    display: none;
+}
+
+.filter.open {
+    display: flex;
+}
+
+.filter_checkbox {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.filter_checkbox input {
+    margin-right: 0.7rem;
+    padding: 1rem;
+}
+
+.checkbox_container {
+    display: flex;
+    align-items: center;
+}
+
+select.input {
+    -webkit-appearance: none;
+    -moz-appearance: none;   
+    appearance: none;  
+}
+
+.handicap_filter {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.handicap_filter_container {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.handicap_filter_container .handicap_btn {
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    padding: 0.7em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: var(--text-color) solid 1px;
+}
+
+.handicap_filter_container .handicap_btn img {
+    height: 30px;
+    width: 30px;
+}
+
+.handicap_filter_container .handicap_btn:hover {
+    transform: scale(1.2);
+    transition: 0.3s;
+}
+
+@media screen and (min-width: 1024px) {
+    .filter_checkbox,
+    .handicap_filter_container {
+        width: 40vw;
+    }
+
+    .handicap_filter_container .handicap_btn img {
+        height: 35px;
+        width: 35px;
+    }
+
+    .filter {
+        gap: 1.5rem;
+    }
+
+    .filter_checkbox input {
+        transform: scale(1.6);
+    }
+
+    .handicap_filter {
+        gap: 1.5rem;
+    }
+}

@@ -20,6 +20,19 @@
     color: var(--black);
 }
 
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top_bar cite {
+    height: 100%;
+    color: var(--white);
+    margin-bottom: -3px;
+    margin-left: 1rem;
+}
+
 .top_bar h2 {
     color: var(--white);
 }
@@ -41,14 +54,23 @@
 
 .banner {
     width: 100%;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .banner img {
     width: 100%;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover;
 }
 
 .nav_top_bar {
+    display: none;
+}
+
+.top_bar cite {
     display: none;
 }
 
@@ -63,7 +85,11 @@
         width: 45px;
     }
 
+    .top_bar cite {
+        display: block;
+    }
+
     .banner {
-        height: 20vh;
+        height: 50vh;
     }
 }
