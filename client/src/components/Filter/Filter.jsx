@@ -44,7 +44,7 @@ function Filter({sectors, disabilities}) {
                 </div>
             </div>
             <select className="input input_chevron" id="" onChange={handleChangeSector}>
-            <option value="sector">Sélectionnez un secteur d'activité</option>
+            <option value="">Sélectionnez un secteur d'activité</option>
             {sectors.map((sector)=>
                 <option key={sector.id_sector} value={sector.id_sector}>{sector.name}</option>
             )}
