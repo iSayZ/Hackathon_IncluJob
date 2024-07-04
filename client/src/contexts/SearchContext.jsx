@@ -15,7 +15,7 @@ import myAxios from "../services/myAxios"
     const [sector, setSector] = useState("");
     const [location, setLocation] = useState("");
     const [contract, setContract] = useState({});
-    const [disability, setDisability] = useState("");
+    const [disability, setDisability] = useState({});
 
     const handleChangeJob = (e) => {
         setJob(e.target.value)
@@ -27,10 +27,20 @@ import myAxios from "../services/myAxios"
         console.log("sector =>", sector)
     }
 
-    const handleChangeDisability = (e) => {
-      setDisability(e)
-      console.log("Disability =>", disability)
-  }
+    const handleChangeDisability = (disabilityId) => {
+      
+      // Vérifier si la clé existe déjà dans l'état contract
+      if (!disability.hasOwnProperty(disabilityId)) {
+        // Mettre à jour l'état en ajoutant la nouvelle clé et sa valeur
+        setDisability({ ...disability, [disabilityId]: disabilityId });
+      } else {
+        // Si la clé existe déjà, la supprimer pour désélectionner la case à cocher
+        const updatedDisability = { ...disability };
+        delete updatedDisability[disabilityId];
+        setDisability(updatedDisability);
+      }
+      console.log("disability =>", disability)
+    }
 
     const handleChangeLocation = (e) => {
         setLocation(e.target.value)
