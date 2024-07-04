@@ -15,6 +15,25 @@ const browse = async (req, res, next) => {
   }
 };
 
+// The R of BREAD - Read operation
+const read = async (req, res, next) => {
+  try {
+    // Fetch a specific item from the database based on the provided ID
+    const offer = await tables.offer.read(req.params.id);
+    
+    // If the offer is not found, respond with HTTP 404 (Not Found)
+    // Otherwise, respond with the offer in JSON format
+    if (offer == null) {
+      res.sendStatus(404);
+    } else {
+      res.json(offer);
+    }
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
 const browseFilter = async (req, res, next) => {
   try {
     // Fetch all items from the database
@@ -30,5 +49,6 @@ const browseFilter = async (req, res, next) => {
 
 module.exports = {
   browse,
+  read,
   browseFilter
 };

@@ -68,6 +68,10 @@ select.input {
     transition: 0.3s;
 }
 
+.handicap_filter_container .handicap_btn.active {
+    background-color: var(--white);
+}
+
 @media screen and (min-width: 1024px) {
     .filter_checkbox,
     .handicap_filter_container {

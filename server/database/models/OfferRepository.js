@@ -15,36 +15,58 @@ class ItemRepository extends AbstractRepository {
     return rows;
   }
 
+  async read(id) {
+    // Execute the SQL SELECT query to retrieve a specific item by its ID
+    const [rows] = await this.database.query(
+      `select * from ${this.table} where id_offer = ?`,
+      [id]
+    );
+
+    const [rows2] = await this.database.query(
+      `select * from offer_disability where id_offer_fk = ?`,
+      [id]
+    );
+
+    const result = rows[0]
+    result.offer_disability = rows2;
+
+    // Return the first row of the result, which represents the item
+    return result;
+  }
+
   async readByFilter(req) {
     console.log(req.body)
     const { job, sector, location, contract, disability } = req.body;
 
     // Base de la requête
-    let query = `SELECT * FROM ${this.table} WHERE 1=1 `;
+    let query = `SELECT o.* FROM ${this.table} o
+               LEFT JOIN offer_disability AS od ON o.id_offer = od.id_offer_fk WHERE 1=1 `;
     let queryParams = [];
   
     // Ajoutez des conditions à la requête en fonction des filtres fournis
     if (job) {
-      query +=  `AND name LIKE ?`;
+      query +=  `AND o.name LIKE ?`;
       queryParams.push(`%${job}%`);
     }
     if (sector) {
-      query += ' AND id_sector_fk = ?';
+      query += ' AND o.id_sector_fk = ?';
       queryParams.push(parseInt(sector));
     }
     if (location) {
-      query += ' AND location LIKE ?';
+      query += ' AND o.location LIKE ?';
       queryParams.push(`%${location}%`);
     }
     if (contract && Object.keys(contract).length > 0) {
-      const contractConditions = Object.keys(contract).map(key => 'contract = ?');
+      const contractConditions = Object.keys(contract).map(key => 'o.contract = ?');
       query += ' AND (' + contractConditions.join(' OR ') + ')';
       queryParams.push(...Object.values(contract));
-  }
-    if (disability) {
-      query += ' AND id_disability_fk = ?';
-      queryParams.push(disability);
     }
+    if (disability && Object.keys(disability).length > 0) {
+      const disabilityIds = Object.entries(disability).map(([key, value]) => value);
+      const placeholders = disabilityIds.map(() => '?').join(',');
+      query += ` AND od.id_disability_fk IN (${placeholders})`;
+      queryParams.push(...disabilityIds);
+  }
     
     try {
       console.log("requete =>", query, queryParams)
