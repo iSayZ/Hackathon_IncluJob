@@ -48,6 +48,10 @@ body {
   font-family: "inter";
 }
 
+.main {
+  margin-top: 6rem;
+}
+
 p,
 h1,
 h2,

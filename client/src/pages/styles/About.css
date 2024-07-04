@@ -7,6 +7,16 @@
     padding: 2rem;
 }
 
+.about .title_header {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.about .approach_img img{
+    width: 100%;
+    height: 100%;
+}
+
 .about .approach p{
     padding: 0 2rem;
 }
@@ -21,7 +31,7 @@
     background-color: var(--secondary-color);
 }
 
-.about .stat_number p {
+.about .stat_number h2 {
     color: var(--white);
 }
 
@@ -35,7 +45,6 @@
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    display: none;
 }
 
 .handicap {
@@ -86,15 +95,110 @@
 
 .about .info.second {
     background-color: var(--background-color);
+    text-align: left;
 }
 
 .about .info.second p {
     color: var(--text-color);
 }
 
+.about .info.third {
+    text-align: left;
+    background-color: var(--background-color);
+}
+
+.about .info.third p{
+    color: var(--text-color);
+}
+
+.about .info.third ul {
+    color: var(--text-color);
+    margin-left: 1rem;
+}
+
+.about .info.third #first-list {
+    margin-bottom: 1rem;
+}
+
+.focus-text {
+    font-weight: 700;
+}
+
+.about hr {
+    width: 80%;
+    margin: auto;
+}
+
+.block_graph {
+    padding: 2rem;
+}
+
+.block_graph h2 {
+    text-align: center;
+}
+
+.block_graph .graph_container {
+    width: 100%;
+    height: auto;
+    margin: 2rem 0;
+}
+
+.info.first a {
+    color: var(--white);
+}
+
+.info.first #white {
+    color: var(--white);
+}
+
 @media screen and (min-width: 1024px) {
-    .about_header {
+    .approach_img {
+        width: 50vw;
+        height: auto;
+    }
+
+    .approach_img img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .handicap {
+        width: 50%;
+        flex-direction: column;
+        text-align: center;
+        gap: 1.2rem;
+        margin: auto;
+    }
+
+    .handicap .logo {
+        margin: 0;
+    }
+
+    .handicap h3,
+    .handicap p {
+        margin-bottom: 0.5rem;
+    }
+
+    .info.second,
+    .info.third {
+        width: 80%;
+        margin: auto;
+    }
+
+    .about .block_graph .graph_container {
+        width: auto;
+        height: 80vh;
+        margin: 2rem auto;
         display: flex;
-        align-items: center;
+        flex-direction: column;
+    }
+
+    .block_graph cite {
+        display: block;
+    }
+
+    .about .block_graph .graph_container img {
+        width: 100%;
+        height: 100%;
     }
 }

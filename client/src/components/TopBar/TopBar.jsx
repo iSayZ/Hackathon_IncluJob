@@ -1,9 +1,19 @@
 import "./TopBar.css"
 import { useSettings } from "../../contexts/SettingsContext";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+
 
 function TopBar () {
+
+    const location = useLocation();
+    const [showBanner, setShowBanner] = useState(false);
+
+    useEffect (
+        () => {
+            setShowBanner(location.pathname === "/")
+        }, [location]
+    )
 
     const { toggleBurgerMenu, isDarkMode } = useSettings();
     const { hash } = useLocation();
@@ -32,9 +42,11 @@ function TopBar () {
                 </div>
                 <button className="btn_burger_menu no_btn zoom" type="button" onClick={toggleBurgerMenu} aria-label="Bouton d'ouverture du menu de navigation"><img src={isDarkMode ? "/assets/images/icons/burger-menu-yellow.svg" : "/assets/images/icons/burger-menu-white.svg"} alt="Icone du menu" /></button>
             </div>
+            {showBanner &&
             <div className="banner">
                 <img src="/assets/images/banner.jpg" alt="Bannière du haut de page" />
             </div>
+            }
         </>
     )
 }

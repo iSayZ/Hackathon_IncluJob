@@ -16,7 +16,9 @@ function App() {
         <TopBar />
         <SettingsButton />
         <BurgerMenu />
+        <div className="main">
         <Outlet />
+        </div>
         <Footer />
       </SettingsProvider>
     </SearchProvider>
