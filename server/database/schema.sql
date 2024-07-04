@@ -135,7 +135,7 @@ INSERT INTO sector (name) VALUES
 ('Distribution'),
 ('Grande consommation'),
 ('Direction'),
-('useristration'),
+('Transport'),
 ('Santé'),
 ('Social'),
 ('Culture'),

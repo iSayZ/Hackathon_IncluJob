@@ -79,7 +79,7 @@ function RegisterForm4() {
           </div>
         </div>
         <div className="register_form_4_4_btn">
-          <Link to={"/#search"}>
+          <Link to={"/confirmation-inscription"}>
             <button className="btn two">Valider mon profil</button>
           </Link>
         </div>

@@ -137,72 +137,154 @@ WHERE od.id_offer_fk = ?`,
   //   }
   // }
 
-  async readByFilter(req, res) {
-    console.log(req.body);
-    const { job, sector, location, contract, disability } = req.body;
+//   async readByFilter(req, res) {
+//     console.log(req.body);
+//     const { job, sector, location, contract, disability } = req.body;
 
-    // Base de la requête
-    let query = `SELECT c.*, o.* FROM ${this.table} o
-                INNER JOIN operation ON id_offer_fk=id_offer
-                INNER JOIN account ON id_account=id_account_fk
-                INNER JOIN company AS c ON id_company=id_company_fk
-                LEFT JOIN offer_disability AS od ON o.id_offer = od.id_offer_fk WHERE 1=1 `;
-    let queryParams = [];
+//     // Base de la requête
+//     let query = `SELECT c.*, o.* FROM ${this.table} o
+//                  INNER JOIN operation ON o.id_offer = operation.id_offer_fk
+//                  INNER JOIN account ON account.id_account = operation.id_account_fk
+//                  INNER JOIN company AS c ON c.id_company = account.id_company_fk
+//                  LEFT JOIN offer_disability AS od ON o.id_offer = od.id_offer_fk
+//                  WHERE 1=1 `;
+//     let queryParams = [];
 
-    // Ajoutez des conditions à la requête en fonction des filtres fournis
-    if (job) {
-        query += `AND o.title LIKE ?`;
-        queryParams.push(`%${job}%`);
-    }
-    if (sector) {
-        query += ' AND o.id_sector_fk = ? ';
-        queryParams.push(parseInt(sector));
-    }
-    if (location) {
-        query += ' AND o.location LIKE ? ';
-        queryParams.push(`%${location}%`);
-    }
-    if (contract && Object.keys(contract).length > 0) {
-        const contractConditions = Object.keys(contract).map(key => 'o.contract = ?');
-        query += ' AND (' + contractConditions.join(' OR ') + ') ';
-        queryParams.push(...Object.values(contract));
-    }
-    if (disability && Object.keys(disability).length > 0) {
-        const disabilityIds = Object.entries(disability).map(([key, value]) => value);
-        const placeholders = disabilityIds.map(() => '?').join(',');
-        query += ` AND od.id_disability_fk IN (${placeholders}) `;
-        queryParams.push(...disabilityIds);
-    }
+//     // Ajoutez des conditions à la requête en fonction des filtres fournis
+//     if (job) {
+//         query += ` AND o.title LIKE ?`;
+//         queryParams.push(`%${job}%`);
+//     }
+//     if (sector) {
+//         query += ' AND o.id_sector_fk = ?';
+//         queryParams.push(parseInt(sector));
+//     }
+//     if (location) {
+//         query += ' AND o.location LIKE ?';
+//         queryParams.push(`%${location}%`);
+//     }
+//     if (contract && Object.keys(contract).length > 0) {
+//         const contractConditions = Object.keys(contract).map(() => 'o.contract = ?');
+//         query += ' AND (' + contractConditions.join(' OR ') + ')';
+//         queryParams.push(...Object.values(contract));
+//     }
+//     if (disability && Object.keys(disability).length > 0) {
+//         const disabilityIds = Object.values(disability);
+//         const placeholders = disabilityIds.map(() => '?').join(',');
+//         query += ` AND od.id_disability_fk IN (${placeholders})`;
+//         queryParams.push(...disabilityIds);
+//     }
 
-    console.log('Constructed query:', query);
-    console.log('Query parameters:', queryParams);
+//     console.log('Constructed query:', query);
+//     console.log('Query parameters:', queryParams);
 
-    try {
-        // Exécutez la requête avec les paramètres
-        const [rows, fields] = await this.database.query(query, queryParams);
+//     try {
+//         // Exécutez la requête avec les paramètres
+//         const [rows] = await this.database.query(query, queryParams);
 
-        // Maintenant, pour chaque ligne (row) dans le résultat,
-        // récupérons les disabilities associées et ajoutons-les à chaque objet
-        for (let i = 0; i < rows.length; i++) {
-            const offer = rows[i];
+//         // Maintenant, pour chaque ligne (row) dans le résultat,
+//         // récupérons les disabilities associées et ajoutons-les à chaque objet
+//         for (let i = 0; i < rows.length; i++) {
+//             const offer = rows[i];
 
-            // Récupérer les disabilities pour cette offre
-            const [offer_disability] = await this.database.query(`
-                SELECT od.*, d.pictogram
-                FROM offer_disability AS od
-                INNER JOIN disability AS d ON od.id_disability_fk = d.id_disability
-                WHERE od.id_offer_fk = ?
-            `, [offer.id_offer]);
+//             // Récupérer les disabilities pour cette offre
+//             const [offer_disability] = await this.database.query(`
+//                 SELECT od.*, d.pictogram
+//                 FROM offer_disability AS od
+//                 INNER JOIN disability AS d ON od.id_disability_fk = d.id_disability
+//                 WHERE od.id_offer_fk = ?
+//             `, [offer.id_offer]);
 
-            // Ajouter les disabilities au résultat de la requête
-            offer.offer_disability = offer_disability;
-        }
+//             // Ajouter les disabilities au résultat de la requête
+//             offer.offer_disability = offer_disability;
+//         }
 
-        return rows;
-    } catch (error) {
-        console.error('Error executing query:', error);
-        res.status(500).json({ error: 'An error occurred while fetching jobs' });
-    }
+//         return rows;
+//     } catch (error) {
+//         console.error('Error executing query:', error);
+//         res.status(500).json({ error: 'An error occurred while fetching jobs' });
+//     }
+// }
+
+async readByFilter(req, res) {
+
+  function formatDate(dateString) {
+    const date = new Date(dateString);
+    const day = date.getDate();
+    const month = date.getMonth() + 1; // Les mois commencent à 0 dans JavaScript
+    const year = date.getFullYear();
+    return `${day}-${month}-${year}`;
+  }
+
+  console.log(req.body);
+  const { job, sector, location, contract, disability } = req.body;
+
+  // Base de la requête
+  let query = `SELECT c.*, o.*, DATE_FORMAT(o.date, '%d-%m-%Y') as date FROM ${this.table} o
+               INNER JOIN operation ON o.id_offer = operation.id_offer_fk
+               INNER JOIN account ON account.id_account = operation.id_account_fk
+               INNER JOIN company AS c ON c.id_company = account.id_company_fk
+               LEFT JOIN offer_disability AS od ON o.id_offer = od.id_offer_fk
+               WHERE 1=1 `;
+  let queryParams = [];
+
+  // Ajoutez des conditions à la requête en fonction des filtres fournis
+  if (job) {
+      query += ` AND o.title LIKE ?`;
+      queryParams.push(`%${job}%`);
+  }
+  if (sector) {
+      query += ' AND o.id_sector_fk = ?';
+      queryParams.push(parseInt(sector));
+  }
+  if (location) {
+      query += ' AND o.location LIKE ?';
+      queryParams.push(`%${location}%`);
+  }
+  if (contract && Object.keys(contract).length > 0) {
+      const contractConditions = [];
+      Object.keys(contract).forEach(key => {
+          contractConditions.push('o.contract LIKE ?');
+          queryParams.push(`%${contract[key]}%`);
+      });
+      query += ' AND (' + contractConditions.join(' OR ') + ')';
+  }
+  if (disability && Object.keys(disability).length > 0) {
+      const disabilityIds = Object.values(disability);
+      const placeholders = disabilityIds.map(() => '?').join(',');
+      query += ` AND od.id_disability_fk IN (${placeholders})`;
+      queryParams.push(...disabilityIds);
+  }
+
+  console.log('Constructed query:', query);
+  console.log('Query parameters:', queryParams);
+
+  try {
+      // Exécutez la requête avec les paramètres
+      const [rows] = await this.database.query(query, queryParams);
+
+      // Maintenant, pour chaque ligne (row) dans le résultat,
+      // récupérons les disabilities associées et ajoutons-les à chaque objet
+      for (let i = 0; i < rows.length; i++) {
+          const offer = rows[i];
+
+          // Récupérer les disabilities pour cette offre
+          const [offer_disability] = await this.database.query(`
+              SELECT od.*, d.pictogram
+              FROM offer_disability AS od
+              INNER JOIN disability AS d ON od.id_disability_fk = d.id_disability
+              WHERE od.id_offer_fk = ?
+          `, [offer.id_offer]);
+
+          // Ajouter les disabilities au résultat de la requête
+          offer.offer_disability = offer_disability;
+      }
+
+      return rows;
+  } catch (error) {
+      console.error('Error executing query:', error);
+      res.status(500).json({ error: 'An error occurred while fetching jobs' });
+  }
 }
 
 

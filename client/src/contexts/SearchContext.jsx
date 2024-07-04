@@ -17,6 +17,28 @@ import myAxios from "../services/myAxios"
     const [contract, setContract] = useState({});
     const [disability, setDisability] = useState({});
 
+    function processResults(results) {
+      // Utiliser un Set pour éliminer les doublons basés sur l'id_offer
+      const uniqueResults = new Map();
+  
+      results.forEach(result => {
+          if (!uniqueResults.has(result.id_offer)) {
+              uniqueResults.set(result.id_offer, result);
+          }
+      });
+  
+      // Convertir le Map en tableau
+      const uniqueArray = Array.from(uniqueResults.values());
+  
+      // Mélanger les objets de manière aléatoire
+      for (let i = uniqueArray.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [uniqueArray[i], uniqueArray[j]] = [uniqueArray[j], uniqueArray[i]];
+      }
+  
+      return uniqueArray;
+  }
+
     const handleChangeJob = (e) => {
         setJob(e.target.value)
         console.log("job =>", job)
@@ -77,7 +99,7 @@ import myAxios from "../services/myAxios"
         });
 
         console.log(response.data)
-        setResult(response.data)
+        setResult(processResults(response.data))
     } catch(err) {
       console.log(err)
     }

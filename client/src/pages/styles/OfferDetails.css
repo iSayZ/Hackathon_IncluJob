@@ -30,6 +30,7 @@
     height: 70px;
     border-radius: 10px;
     box-shadow: var(--shadow-container);
+    background-color: #ffff;
     margin-right: 1rem;
 }
 

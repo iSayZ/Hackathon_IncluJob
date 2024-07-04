@@ -46,10 +46,10 @@ function BurgerMenu() {
           </Link>
           <Link
             to="/"
-            aria-label="Aller vers la rubrique : 'Nous contacter'"
+            aria-label="Aller vers la rubrique : 'Acceuil'"
             onClick={handleLinkClick}
           >
-            Nous contacter
+            Accueil
           </Link>
           <br />
           <br />

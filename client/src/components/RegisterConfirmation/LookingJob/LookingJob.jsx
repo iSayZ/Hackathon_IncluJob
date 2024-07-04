@@ -1,4 +1,5 @@
 import "./LookingJob.css"
+import { Link } from "react-router-dom"
 
 function LookingJob() {
   return (
@@ -7,7 +8,7 @@ function LookingJob() {
         <h3>Votre profil à bien été pris en compte !</h3>
       </div>
       <div className="looking_btn">
-      <button className="btn one">Rechercher un emploi</button>
+      <Link to="/" className="btn one">Rechercher un emploi</Link>
       </div>
     </div>
   )
