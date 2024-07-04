@@ -1,0 +1,34 @@
+.all_confirmation {
+    margin: 2rem 0;
+}
+
+.all_confirmation h2 {
+  text-align: center;
+}
+
+.confirmation_image_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.all_confirmation h3{
+    text-align: center;
+
+}
+
+.confirmation_para_container{
+    display: flex;
+    justify-content: center;
+}
+.confirmation_para_container p{
+    text-align: center;
+    font-weight: 600;
+    margin-top: 1rem;
+    width: 80%;
+}
+.confirmation_image_container img{
+  width: 200px;
+}
+
+
+

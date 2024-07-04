@@ -1,0 +1,75 @@
+#announce_create_localisation{
+    background-image: url(/assets/images/icons/location.png);
+    background-repeat: no-repeat;
+    background-size:  40px;
+    background-position:  left;
+}
+
+.announce_create_checkbox_all{
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 1rem;
+}
+
+.announce_create_checkbox{
+    display: flex;
+
+}
+
+.annouce_create_describe_job{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    
+}
+
+.annouce_create_describe_job input{
+    border-radius: 1rem;
+    padding: 1rem;
+    padding-bottom: 12rem;
+    width: 80%;
+    text-align: center;
+    border: 1px solid rgb(214, 214, 214);
+    background-color: var(--white);
+}
+
+.create_announce_all_filter .checkbox_container {
+    margin-bottom: 2rem;
+    
+}
+
+.create_annouce_input_select .input_chevron{
+    margin-bottom: 2rem;
+    border: 1px gray solid;
+    width: 90%;
+    border-radius: 0.5rem;
+    background-color: var(--white);
+
+}
+
+.create_annouce_input_select{
+    display: flex;
+    justify-content: center;
+}
+
+.create_announce_all_filter{
+    margin: auto;
+    width: 90%;
+    
+}
+
+.create_announce_all_filter .handicap_filter p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    
+}
+
+.create_annouce_handi_para{
+    margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    width: 80%;
+}

@@ -1,0 +1,24 @@
+#contact_confirmation_register{
+    text-align: center;
+    font-weight: 600;
+}
+
+#register_confirmation_contact button{
+    margin-bottom: 2rem;
+}
+
+#register_confirmation_contact {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+@media screen and (min-width: 1024px) {
+    .all_register_confirmation{
+        margin: auto;
+        width: 50vw;
+    }
+
+
+}
