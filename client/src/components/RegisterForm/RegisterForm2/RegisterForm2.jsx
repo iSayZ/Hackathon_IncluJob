@@ -8,7 +8,7 @@ function RegisterForm2() {
   useEffect(() => {
     console.log(hash)
     if (hash) {
-      const element = document.getElementById("#top");
+      const element = document.getElementById("top");
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
@@ -17,7 +17,7 @@ function RegisterForm2() {
 
   return (
       <div>
-        <div className="register_form_4_4_h2">
+        <div id="top" className="register_form_4_4_h2">
           <h2>S'inscrire en tant que chercheur d'emploi</h2>
         </div>
         <div className="register_form_info">

@@ -25,12 +25,15 @@ function HomeFeature() {
     <div className="feature_home_all">
       <HomeLogin />
       <p className="home_feature_offer_para">Les offres d'emplois récentes</p>
-      <div className="card_container">
+      <div id="card_container_yes_caroussel" className="card_container">
        {offer && <Caroussel offers={offer} /> }
-      {/* {offer && offer.map((offer) => 
-        <CardOfferHome offer={offer} />
-      )} */}
       </div>
+       <div id="card_container_no_caroussel" className="card_container">
+       {offer && offer.map((offer) => 
+        <CardOfferHome offer={offer} />
+      )} 
+
+       </div>
       <HomeAbout />
     </div>
   );

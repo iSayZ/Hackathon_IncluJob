@@ -2,14 +2,27 @@ import "./Search.css"
 import Filter from "../Filter/Filter";
 import { useSettings } from "../../contexts/SettingsContext";
 import { useSearch } from "../../contexts/SearchContext";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 function Search({sectors, disabilities}) {
 
     const { handleChangeJob, handleChangeLocation, job, location, goSearch } = useSearch();
     const { toggleFilterMenu, openFilter } = useSettings();
+    const { hash } = useLocation();
+
+    useEffect(() => {
+        console.log(hash)
+        if (hash) {
+          const element = document.getElementById("search");
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+      }, [hash]);
 
     return (
-        <div className="search_container">
+        <div id="search" className="search_container">
             <h2>Trouvez votre futur emploi</h2>
             <p>Notre objectif est de permettre à tous de trouver l’emploi qui correspond à leur profil</p>
             <div>
