@@ -1,15 +1,30 @@
 import "./styles/About.css";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import { useState } from "react";
 
 function About() {
   const [openResult, setOpenResult] = useState(false);
+  const { hash } = useLocation();
 
   const handleOpenResult = () => {
     setOpenResult(!openResult);
   };
 
+  
+
+  useEffect(() => {
+    console.log(hash)
+    if (hash) {
+      const element = document.getElementById("topp");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [hash]);
+
   return (
-    <div className="about">
+    <div id="topp" className="about">
           <h2>Notre démarche</h2>
       <div className="about_header">
         <div className="approach">

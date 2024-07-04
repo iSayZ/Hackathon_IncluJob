@@ -6,16 +6,25 @@
   text-align: center;
   font-weight: 600;
   font-size: 1.2rem;
-
 }
 
 p.home_feature_offer_para {
   margin-top: 1rem;
 }
+#card_container_no_caroussel{
+  display: none;
+}
+
 
 @media screen and (min-width: 1024px) {
   p.home_feature_offer_para {
     margin-top: 1.5rem;
     margin-bottom: 0.5rem;
+  }
+  #card_container_no_caroussel{
+    display: flex;
+  }
+  #card_container_yes_caroussel{
+    display: none;
   }
 }

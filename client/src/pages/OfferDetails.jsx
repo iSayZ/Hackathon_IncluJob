@@ -1,7 +1,7 @@
 import "./styles/OfferDetails.css"
 import { useEffect, useState } from "react";
 import myAxios from "../services/myAxios";
-import { useParams } from "react-router-dom"
+import { useParams , Link } from "react-router-dom"
 import { useSettings } from "../contexts/SettingsContext";
 
 function OfferDetails () {
@@ -63,8 +63,12 @@ function OfferDetails () {
             <div className="connexion">
                     <h3>Connectez-vous ou inscrivez-vous pour recevoir
                     des offres d’emploi adaptées à votre profil</h3>
+                    <Link to ="/inscription">
                     <button className="btn one">Se connecter</button>
+                    </Link>
+                    <Link to ="/inscription">
                     <button className="btn one">S'inscrire</button>
+                    </Link>
             </div>
         </div>
         </>
