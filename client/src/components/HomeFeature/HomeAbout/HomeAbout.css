@@ -1,0 +1,10 @@
+.home_about_all p {
+  text-align: center;
+  font-weight: 700;
+}
+
+.home_about_button {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
