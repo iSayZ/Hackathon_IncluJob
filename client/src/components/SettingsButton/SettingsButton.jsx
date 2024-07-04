@@ -3,12 +3,8 @@ import "./SettingsButton.css";
 import { useSettings } from "../../contexts/SettingsContext";
 
 function SettingsButton() {
-  const { isDarkMode, hangleToggleTheme, hangleToggleSize } = useSettings();
-  const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const { isDarkMode, hangleToggleTheme, hangleToggleSize, isPopupVisible, togglePopup } = useSettings();
 
-  const togglePopup = () => {
-    setIsPopupVisible(!isPopupVisible);
-  };
 
   return (
     <div className="all_setting_button">

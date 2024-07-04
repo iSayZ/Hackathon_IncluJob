@@ -47,7 +47,12 @@
     transition: 0.3s;
 }
 
-@media screen and (min-width: 768px) {
+.nav_burger_menu button {
+    font-size: 1em;
+    font-weight: normal;
+}
+
+@media screen and (min-width: 1024px) {
     .burger_menu {
         left: inherit;
         padding: 0 2rem;

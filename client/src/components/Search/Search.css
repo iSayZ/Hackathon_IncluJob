@@ -18,8 +18,24 @@
     width: 75vw;
 }
 
+.search_container .btn_show_filter {
+    height: 30px;
+    width: 30px;
+}
+
 .search_container .btn_show_filter img {
     height: 30px;
     width: 30px;
+}
+
+@media screen and (min-width: 1024px) {
+    .search_container .input {
+        width: 33vw;
+    }
+
+    .search_container {
+        padding: 1.5rem 0;
+        gap: 1.5rem;
+    }
 }
 

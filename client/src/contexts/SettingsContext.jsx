@@ -13,6 +13,19 @@ import {
     const toggleBurgerMenu = () => {
       setIsOpen(!isOpen)
     }
+
+    const [openFilter, setOpenFilter] = useState(false);
+
+    const toggleFilterMenu = () => {
+      setOpenFilter(!openFilter)
+    }
+
+    const [isPopupVisible, setIsPopupVisible] = useState(false);
+
+    const togglePopup = () => {
+      setIsPopupVisible(!isPopupVisible);
+      setIsOpen(false);
+    };
   
     const [isDarkMode, setIsDarkMode] = useState(false);
   const [isKingSize, setIsKingSize] = useState(false);
@@ -53,9 +66,9 @@ import {
     }
 
     if (isKingSize) {
-      document.documentElement.style.setProperty('--size', '1.2em');
+      document.documentElement.style.setProperty('--size', '18px');
     } else {
-      document.documentElement.style.setProperty('--size', '1em');
+      document.documentElement.style.setProperty('--size', '14px');
     }
   }, [isDarkMode, isKingSize]);
 
@@ -68,7 +81,7 @@ import {
   }
 
       return (
-          <SettingsContext.Provider value={{ hangleToggleTheme, hangleToggleSize, toggleBurgerMenu, isOpen, isDarkMode }}>
+          <SettingsContext.Provider value={{ hangleToggleTheme, hangleToggleSize, toggleBurgerMenu, isOpen, isDarkMode, openFilter, toggleFilterMenu, isPopupVisible, togglePopup  }}>
               {children}
           </SettingsContext.Provider>
       )
