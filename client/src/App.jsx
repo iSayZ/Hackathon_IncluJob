@@ -4,12 +4,13 @@ import { SettingsProvider } from "./contexts/SettingsContext";
 import { SearchProvider } from "./contexts/SearchContext";
 import SettingsButton from "./components/SettingsButton/SettingsButton";
 import TopBar from "./components/TopBar/TopBar";
-import Footer from "./components/Footer/Footer"
+import Footer from "./components/Footer/Footer";
 import BurgerMenu from "./components/BurgerMenu/BurgerMenu";
+import HomeFeature from "./components/HomeFeature/HomeFeature";
 
-function App () {
-
+function App() {
   return (
+
     <SearchProvider>
       <SettingsProvider>
         <TopBar />
@@ -19,7 +20,8 @@ function App () {
         <Footer />
       </SettingsProvider>
     </SearchProvider>
+
   );
-};
+}
 
 export default App;

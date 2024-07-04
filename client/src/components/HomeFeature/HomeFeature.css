@@ -1,0 +1,10 @@
+.feature_home_all {
+  background-color: var(--background-color);
+}
+
+.home_feature_offer_para {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin: 2rem 0;
+}

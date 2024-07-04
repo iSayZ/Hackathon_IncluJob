@@ -1,0 +1,28 @@
+.home_login_btn{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.home_login_btn button{
+    width: 10em;
+    margin-top: 1rem;
+}
+
+.hr_90{
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 90%;
+
+}
+
+.home_login_para{
+    margin : 2rem 0 1rem 0;
+}
+
+.home_login_para p{
+    text-align: center;
+    font-weight: 600;
+}
