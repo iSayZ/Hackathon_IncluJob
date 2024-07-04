@@ -18,7 +18,7 @@
   --btn-three-active: #2e4550;
   --primary-font: "Inter";
   --title-font: "Inter";
-  --size: 1em;
+  --size: 14px;
   --sm-size: 1.2em;
   --input-size: 40px;
 }
@@ -174,18 +174,22 @@ a {
 .input {
   box-shadow: inset var(--white) 0 0 0 2px;
   border: 0;
-  background: var(--white);
-  appearance: none;
+  background: #ffffff;
   width: 100%;
   position: relative;
   border-radius: 3px;
   padding: 9px 12px;
   line-height: 1.4;
-  color: rgb(0, 0, 0);
-  font-size: 16px;
+  color: #1a1616;
+  font-size: 1em;
   font-weight: 400;
   height: 40px;
   transition: all .2s ease;
+  text-align: center;
+}
+
+.input::placeholder {
+  color: #1a1616;
 }
 
 .input:hover{
@@ -197,7 +201,23 @@ a {
     box-shadow: 0 0 0 0 var(--white) inset, var(--secondary-color) 0 0 0 3px;
 }
 
-.input::placeholder {
-  text-align: center;
+.input_search {
+  background: #ffffff url('/assets/images/icons/search.svg') no-repeat;
+  background-size: 2rem;
+  background-position: 0.5rem center;
+  padding-left: 3rem;
 }
 
+.input_location {
+  background: #ffffff url('/assets/images/icons/location.png') no-repeat;
+  background-size: 2.3rem;
+  background-position: 0.3rem center;
+  padding-left: 3rem;
+}
+
+.input_chevron {
+  background: #ffffff url('/assets/images/icons/down-arrow.png') no-repeat;
+  background-size: 2rem;
+  background-position: 0.5rem center;
+  padding-left: 3rem;
+}
