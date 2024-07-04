@@ -6,7 +6,6 @@ class ItemRepository extends AbstractRepository {
     // and pass the table name "item" as configuration
     super({ table: "offer" });
   }
-
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
     const [rows] = await this.database.query(`select * from ${this.table}`);
@@ -16,18 +15,38 @@ class ItemRepository extends AbstractRepository {
   }
 
   async read(id) {
-    // Execute the SQL SELECT query to retrieve a specific item by its ID
-    const [rows] = await this.database.query(
-      `select * from ${this.table} where id_offer = ?`,
-      [id]
-    );
+      // Fonction utilitaire pour formater la date
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  const day = date.getDate();
+  const month = date.getMonth() + 1; // Les mois commencent à 0 dans JavaScript
+  const year = date.getFullYear();
+  return `${day}-${month}-${year}`;
+}
+      // Exécutez la requête SQL avec le paramètre 'id'
+      const [rows] = await this.database.query(
+          `SELECT o.*, c.*
+FROM ${this.table} AS o
+INNER JOIN operation ON o.id_offer = operation.id_offer_fk
+INNER JOIN account ON operation.id_account_fk = account.id_account
+INNER JOIN company AS c ON account.id_company_fk = c.id_company
+WHERE o.id_offer = (?);`,
+          [id]
+        );
+        // Traitement de la date dans JavaScript
+        let result = rows[0];
+      
+          result.date = formatDate(result.date); // Appel à une fonction pour formater la date
 
     const [rows2] = await this.database.query(
-      `select * from offer_disability where id_offer_fk = ?`,
+      `SELECT od.*, d.pictogram
+FROM offer_disability AS od
+INNER JOIN disability AS d ON od.id_disability_fk = d.id_disability
+WHERE od.id_offer_fk = ?`,
       [id]
     );
 
-    const result = rows[0]
+     result = rows[0]
     result.offer_disability = rows2;
 
     // Return the first row of the result, which represents the item

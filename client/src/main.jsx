@@ -5,6 +5,8 @@ import App from "./App";
 import HomePage from "./pages/HomePage";
 import About from "./pages/About";
 import Offers from "./pages/Offers";
+import OfferDetails from "./pages/OfferDetails";
+import Register from "./pages/Register";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +26,14 @@ const router = createBrowserRouter([
         path: "/offres",
         element: <Offers />,
       },
+      {
+        path: "/offre/:id",
+        element: <OfferDetails />,
+      },
+      {
+        path: "/inscription",
+        element: <Register />
+      }
     ],
   },
 ]);
