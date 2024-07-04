@@ -8,7 +8,7 @@ function RegisterForm4() {
   useEffect(() => {
     console.log(hash)
     if (hash) {
-      const element = document.getElementById("#top");
+      const element = document.getElementById("search");
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
@@ -64,7 +64,7 @@ function RegisterForm4() {
                 className="register_disability"
                 onClick={() => handleDisabilityClick(index)}
                 style={{
-                  backgroundColor: selectedDisabilities.includes(index) ? "green" : "transparent",
+                  backgroundColor: selectedDisabilities.includes(index) ? "var(--primary-color)" : "transparent",
                   color: selectedDisabilities.includes(index) ? "white" : "black"
                 }}
               >
@@ -79,7 +79,7 @@ function RegisterForm4() {
           </div>
         </div>
         <div className="register_form_4_4_btn">
-          <Link to={"/offres/#top"}>
+          <Link to={"/#search"}>
             <button className="btn two">Valider mon profil</button>
           </Link>
         </div>

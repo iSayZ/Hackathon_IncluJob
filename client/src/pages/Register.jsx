@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./styles/Register.css"
 
 function Register () {
@@ -11,7 +12,9 @@ function Register () {
             <p>En vous inscrivant et en renseignant votre informations,
 cela vous permettra de trouver des offres d’emploi 
 adaptées à votre profil.</p>
+            <Link to="/formulaire-inscription">
             <button className="btn one">S'inscrire</button>
+            </Link>
             </div>
             <hr />
             <div className="register_block">
@@ -19,7 +22,9 @@ adaptées à votre profil.</p>
             <p>En étant inscris en tant qu’employeur de profils RQTH, 
             vous bénéficier d’un accompagnement pour mieux comprendre comment fonctionne l’emploi de travailleurs atteint d’un handicap mais également une aide pour trouver les profils adaptés à vos offres d’emploi.
             </p>
+            <Link to="/formulaire-inscription">
             <button className="btn one">S'inscrire</button>
+            </Link>
             </div>
             <hr />
             <div className="register_block">
