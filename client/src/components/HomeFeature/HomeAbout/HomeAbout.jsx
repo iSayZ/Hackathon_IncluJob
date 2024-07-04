@@ -9,7 +9,7 @@ function HomeAbout() {
         l’emploi dans la région Hauts-de-France
       </p>
       <div className="home_about_button">
-        <button className="btn">En savoir plus</button>
+        <button className="btn one">En savoir plus</button>
       </div>
     </div>
   );

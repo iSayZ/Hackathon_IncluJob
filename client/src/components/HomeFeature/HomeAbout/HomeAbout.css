@@ -1,6 +1,7 @@
 .home_about_all p {
   text-align: center;
   font-weight: 700;
+  color: var(--text-color);
 }
 
 .home_about_button {

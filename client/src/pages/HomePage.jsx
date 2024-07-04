@@ -2,6 +2,7 @@ import "./styles/HomePage.css";
 import Search from "../components/Search/Search";
 import { useEffect, useState } from "react";
 import myAxios from "../services/myAxios";
+import HomeFeature from "../components/HomeFeature/HomeFeature";
 
 function HomePage() {
   const [disabilities, setDisabilities] = useState();
@@ -28,6 +29,7 @@ getData();
   return (
     <div className="homepage">
       <Search sectors={sectors} disabilities={disabilities}/>
+      <HomeFeature />
     </div>
   );
 }

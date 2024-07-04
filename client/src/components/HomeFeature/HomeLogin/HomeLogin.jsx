@@ -8,8 +8,8 @@ function HomeLogin() {
             des offres d’emploi adaptées à votre profil</p>
         </div>
         <div className="home_login_btn">
-        <button className="btn">Se connecter</button>
-        <button className="btn">S'inscrire</button>
+        <button className="btn one">Se connecter</button>
+        <button className="btn one">S'inscrire</button>
         </div>
         <hr className="hr_90"/>
     </div>
