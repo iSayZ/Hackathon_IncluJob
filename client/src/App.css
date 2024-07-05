@@ -115,6 +115,7 @@ a {
   user-select: none;
   -webkit-user-select: none;
   vertical-align: middle;
+  box-shadow: var(--shadow-container);
 }
 
 .btn:hover,
@@ -126,6 +127,7 @@ a {
 .btn:active {
   background: #09223b;
   color: rgb(255, 255, 255, 0.7);
+  box-shadow: none;
 }
 
 .btn:disabled {

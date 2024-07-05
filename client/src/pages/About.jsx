@@ -190,8 +190,8 @@ Enfin, en 2022, <span className="focus-text">le taux de chômage des personnes h
           </div>
           <hr />
           <div className="block_graph">
-          <h2>Nombre de personnes atteintes de handicap par catégorie </h2>
-            <img className="graph_container" src="/assets/images/Graph_2.jpg" alt="" />
+          <h2>Répartition entre demandeurs d'emploi BOE et tous publics dans les Hauts-de-France en 2023</h2>
+            <img className="graph_container" src="/assets/images/image.png" alt="" />
             <cite>Source : www.agefiph.fr/</cite>
           </div>
           <hr />

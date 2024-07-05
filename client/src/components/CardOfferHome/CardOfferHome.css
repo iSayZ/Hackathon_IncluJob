@@ -187,6 +187,7 @@
 .all_logo_disability img {
   margin: 0 0.5rem;
   margin-bottom: 1rem;
+  box-shadow: var(--shadow-container);
 }
 
 .all_logo_disability img:hover {

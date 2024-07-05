@@ -38,6 +38,13 @@ function BurgerMenu() {
             Recherche un emploi
           </Link>
           <Link
+            to="/creation-annonce"
+            aria-label="Aller vers la rubrique : 'Création d'annonce'"
+            onClick={handleLinkClick}
+          >
+            Création d'annonce
+          </Link>
+          <Link
             to="/a-propos"
             aria-label="Aller vers la rubrique : 'Notre concept'"
             onClick={handleLinkClick}

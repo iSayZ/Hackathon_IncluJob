@@ -50,6 +50,7 @@ select.input {
 
 .handicap_filter_container .handicap_btn {
     background-color: var(--secondary-color);
+    box-shadow: var(--shadow-container);
     border-radius: 50%;
     padding: 0.7em;
     display: flex;
